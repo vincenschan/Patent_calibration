@@ -287,7 +287,8 @@ export function applyAnnotations(originalText, annotations) {
  */
 export function applyVisualAnnotations(originalText, annotations) {
   if (!annotations || annotations.length === 0) {
-    return originalText.replace(/\n/g, '<br>')
+    // 如果包含HTML标签（如图片），直接返回，否则转换换行符
+    return originalText.includes('<') ? originalText : originalText.replace(/\n/g, '<br>')
   }
   
   // 按照起始位置排序，从后往前处理避免位置偏移
@@ -307,16 +308,17 @@ export function applyVisualAnnotations(originalText, annotations) {
       
       // 创建只有视觉标记的HTML，保留悬浮提示功能但不显示批注文字
       const safeComment = comment.replace(/"/g, '&quot;').replace(/'/g, '&#39;')
-      const safeAnnotatedText = annotatedText.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      const safeCommentForTooltip = comment.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      // 不转义HTML标签，保持图片等HTML元素的正常显示
+      const safeAnnotatedText = annotatedText
       
-      const annotatedHTML = `<span class="annotation" data-annotation="${safeComment}" data-index="${i}">${safeAnnotatedText}<span class="annotation-indicator"></span><span class="annotation-tooltip">${safeCommentForTooltip}</span></span>`
+      const annotatedHTML = `<span class="annotation" data-annotation="${safeComment}" data-index="${i}">${safeAnnotatedText}<span class="annotation-indicator"></span></span>`
       
       result = beforeText + annotatedHTML + afterText
     }
   }
   
-  return result.replace(/\n/g, '<br>')
+  // 如果包含HTML标签（如图片），直接返回，否则转换换行符
+  return result.includes('<img') ? result : result.replace(/\n/g, '<br>')
 }
 
 /**

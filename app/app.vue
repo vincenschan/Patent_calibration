@@ -643,12 +643,13 @@ const setupAnnotationTooltips = () => {
   padding: 25px;
   border: 2px solid #e3f2fd;
   border-radius: 15px;
-  background: #fafafa;
-  font-family: 'Courier New', monospace;
-  font-size: 14px;
-  line-height: 1.6;
+  background: white;
+  font-family: 'Microsoft YaHei', '微软雅黑', 'SimSun', '宋体', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   resize: vertical;
   transition: all 0.3s ease;
+  color: #333;
 }
 
 /* 图片样式 */
@@ -659,54 +660,63 @@ const setupAnnotationTooltips = () => {
   margin: 16px auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: block;
-  text-align: center;
 }
 
 /* 标题样式 */
 .text-display h1, .text-display h2, .text-display h3 {
-  margin: 20px 0 10px 0;
-  color: #2c3e50;
+  margin: 18px 0 12px 0;
+  color: #333;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .text-display h1 {
-  font-size: 24px;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 8px;
+  font-size: 22px;
+  text-align: center;
+  margin: 24px 0 18px 0;
 }
 
 .text-display h2 {
-  font-size: 20px;
-  color: #34495e;
+  font-size: 18px;
+  margin: 20px 0 14px 0;
 }
 
 .text-display h3 {
-  font-size: 18px;
-  color: #7f8c8d;
+  font-size: 16px;
+  margin: 16px 0 12px 0;
 }
 
 /* 段落样式 */
 .text-display p {
-  margin: 12px 0;
+  margin: 0 0 12px 0;
   text-align: justify;
   text-indent: 2em; /* 首行缩进 */
-  line-height: 1.8;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* 居中段落样式 */
+.text-display p.center {
+  text-align: center;
+  text-indent: 0; /* 居中段落不需要首行缩进 */
 }
 
 /* 列表样式 */
 .text-display ul, .text-display ol {
   margin: 12px 0;
-  padding-left: 32px;
+  padding-left: 2em;
 }
 
 .text-display li {
-  margin: 8px 0;
-  line-height: 1.6;
+  margin: 6px 0;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
 /* 嵌套列表样式 */
 .text-display ul ul, .text-display ol ol {
-  margin: 4px 0;
-  padding-left: 24px;
+  margin: 6px 0;
+  padding-left: 1.5em;
 }
 
 /* 引用块样式 */

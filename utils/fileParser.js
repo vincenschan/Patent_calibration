@@ -15,7 +15,8 @@ export async function parseWordDocument(file) {
         return image.read("base64").then(function(imageBuffer) {
           return {
             src: "data:" + image.contentType + ";base64," + imageBuffer,
-            alt: "文档图片"
+            alt: "文档图片",
+            style: "display: block; margin: 16px auto; max-width: 100%; height: auto;"
           }
         })
       }),
@@ -23,6 +24,8 @@ export async function parseWordDocument(file) {
         "p[style-name='Heading 1'] => h1:fresh",
         "p[style-name='Heading 2'] => h2:fresh",
         "p[style-name='Heading 3'] => h3:fresh",
+        "p[style-name='Center'] => p.center",
+        "p[style-name='居中'] => p.center",
         "b => strong",
         "i => em"
       ]
