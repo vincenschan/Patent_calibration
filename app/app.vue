@@ -4,9 +4,10 @@
     
     <!-- 主页面 -->
     <div class="main-page">
+      <!-- 页面标题 -->
+      
       <!-- 校准页面 -->
       <div class="calibration-page">
-        <h1 class="page-title">文字校准系统</h1>
         
         <!-- 第一行：导入框和导入按钮 -->
         <div class="import-section">
@@ -524,6 +525,8 @@ const setupAnnotationTooltips = () => {
   min-height: 100vh;
   padding: 20px;
 }
+
+
 
 .calibration-page {
   max-width: 1200px;
